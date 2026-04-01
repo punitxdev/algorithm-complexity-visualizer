@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big-O Complexity Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- importing chart js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Big-O Complexity Visualizer</h1>
+        <p>A fun way to learn how fast algorithms grow!</p>
+    </header>
+
+    <div class="main-container">
+        <!-- left panel for controls -->
+        <aside class="controls-card card">
+            <h2>Graph Controls</h2>
+            
+            <div class="slider-box">
+                <label for="inputSize">Input Size (n): <span id="sizeValue">50</span></label>
+                <input type="range" id="inputSize" min="10" max="200" value="50">
+            </div>
+
+            <div class="buttons-box">
+                <button id="btnBasic">Show Basic</button>
+                <button id="btnAdvanced">Show Advanced</button>
+                <button id="btnExtreme">Show Extreme</button>
+                <button id="btnAll" class="outline-btn">Show All</button>
+            </div>
+
+            <div class="checkbox-grid">
+                <label class="check-item" title="O(1): Constant time. Very fast."><input type="checkbox" id="chk-o1" checked> <span class="dot c-o1"></span> O(1)</label>
+                <label class="check-item" title="O(log n): Logarithmic time. Good."><input type="checkbox" id="chk-ologn" checked> <span class="dot c-ologn"></span> O(log n)</label>
+                <label class="check-item" title="O(n): Linear time. Fair."><input type="checkbox" id="chk-on" checked> <span class="dot c-on"></span> O(n)</label>
+                <label class="check-item" title="O(n log n): Linearithmic time. Bad."><input type="checkbox" id="chk-onlogn" checked> <span class="dot c-onlogn"></span> O(n log n)</label>
+                <label class="check-item" title="O(n²): Quadratic time. Horrible."><input type="checkbox" id="chk-on2" checked> <span class="dot c-on2"></span> O(n²)</label>
+                <label class="check-item" title="O(n³): Cubic time. Horrible."><input type="checkbox" id="chk-on3"> <span class="dot c-on3"></span> O(n³)</label>
+                <label class="check-item" title="O(2ⁿ): Exponential time. Horrible."><input type="checkbox" id="chk-o2n"> <span class="dot c-o2n"></span> O(2ⁿ)</label>
+                <label class="check-item" title="O(n!): Factorial time. Horrible."><input type="checkbox" id="chk-onfact"> <span class="dot c-onfact"></span> O(n!)</label>
+            </div>
+        </aside>
+
+        <!-- right panel for graph -->
+        <main class="graph-card card">
+            <h2>Complexity Chart</h2>
+            <div class="chart-wrapper">
+                <canvas id="bigOChart"></canvas>
+            </div>
+            <p class="chart-tip">Hover over the lines to see details. Change input size to scale the graph.</p>
+        </main>
+    </div>
+
+    <!-- bottom section for simulating algorithms -->
+    <section class="simulator-card card main-container">
+        <h2>Algorithm Simulator</h2>
+        
+        <div class="sim-tools">
+            <label for="algoSelect">Choose Algorithm: </label>
+            <select id="algoSelect">
+                <option value="linear">Linear Search - O(n)</option>
+                <option value="binary">Binary Search - O(log n)</option>
+                <option value="bubble">Bubble Sort - O(n²)</option>
+                <option value="selection">Selection Sort - O(n²)</option>
+                <option value="merge">Merge Sort - O(n log n)</option>
+                <option value="quick">Quick Sort - O(n log n)</option>
+            </select>
+            <button id="btnPlay" class="play-btn">Play Simulation</button>
+            <div class="step-badge">Operations Count: <strong id="stepCount">0</strong></div>
+        </div>
+        
+        <div class="array-box" id="arrayBox">
+            <!-- javascript will put array bars here -->
+        </div>
+        
+        <p class="sim-info" id="simInfo">Select an algorithm and click Play to start!</p>
+    </section>
+
+    <!-- linking the javascript files -->
+    <script src="chart.js"></script>
+    <script src="simulator.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
