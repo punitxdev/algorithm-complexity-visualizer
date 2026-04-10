@@ -84,10 +84,7 @@ Watch algorithms run with color-coded bar animations:
 git clone https://github.com/punitxdev/algorithm-complexity-visualizer.git
 cd algorithm-complexity-visualizer
 
-# Run Locally (Choose one specific to your OS)
-open index.html                    # macOS
-xdg-open index.html                # Linux
-python3 -m http.server 8080        # Any OS → localhost:8080
+open index.html
 ```
 
 > **Zero dependencies. No NPM setup. No build step. Run directly from the browser.**
